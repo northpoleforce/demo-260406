@@ -1,0 +1,17 @@
+{
+  "name": "@epaper-sync/edge-backend",
+  "version": "1.0.0",
+  "description": "Headless browser Renderer for E1001 E-Paper Sync",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.101.1",
+    "dotenv": "^17.4.0",
+    "express": "^4.18.2",
+    "mqtt": "^5.0.0",
+    "puppeteer": "^21.0.0",
+    "sharp": "^0.32.5"
+  }
+}

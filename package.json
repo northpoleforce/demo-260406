@@ -1,0 +1,41 @@
+{
+  "name": "hackathon-260404-shenzhen",
+  "version": "1.0.0",
+  "description": "边缘 AI 智能餐饮交互系统 × 电子纸同步方案 - Hackathon 2026 深圳",
+  "private": true,
+  "scripts": {
+    "install:all": "npm run install:epaper && npm run install:kitchen-tablet",
+    "install:epaper": "cd epaper-sync/edge-server/backend && npm install && cd ../frontend && npm install",
+    "install:kitchen-tablet": "cd foodshop/kitchen-tablet && npm install",
+
+    "start:foodshop-backend": "cd foodshop/backend && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+    "start:kitchen-tablet": "cd foodshop/kitchen-tablet && npm run dev",
+    "start:kitchen-tablet:prod": "cd foodshop/kitchen-tablet && npm run build && npm run preview",
+
+    "start:epaper-backend": "cd epaper-sync/edge-server/backend && node index.js",
+    "start:epaper-frontend": "cd epaper-sync/edge-server/frontend && npm run dev",
+    "sync:epaper": "cd epaper-sync/edge-server && sh ../../epaper-sync/scripts/run_epaper_sync.sh",
+
+    "dev": "concurrently \"npm run start:foodshop-backend\" \"npm run start:kitchen-tablet\" \"npm run start:epaper-backend\" \"npm run start:epaper-frontend\"",
+
+    "lint": "cd foodshop/kitchen-tablet && npm run lint",
+    "test:backend": "cd foodshop/backend && python -m pytest"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "hackathon",
+    "edge-ai",
+    "epaper",
+    "iot",
+    "rdk-x5",
+    "esp32s3",
+    "fastapi",
+    "react"
+  ],
+  "license": "MIT"
+}
