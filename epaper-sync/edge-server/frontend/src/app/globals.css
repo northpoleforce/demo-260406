@@ -1,0 +1,33 @@
+:root {
+  --background: #f7ede2;
+  --foreground: #22223b;
+  --card-bg: #ffffff;
+  --card-border: #22223b;
+  --glass-gloss: rgba(255, 255, 255, 0.05);
+  --accent: #f28482; /* Cute Pink/Red */
+  --accent-glow: rgba(242, 132, 130, 0.2);
+  --secondary-text: #4a4e69;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 800px;
+  height: 480px;
+  overflow: hidden; /* Prevent scrolling for strict e-ink match */
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,101 @@
+.main {
+  display: grid;
+  grid-template-rows: 210px 1fr;
+  width: 800px;
+  height: 480px;
+  padding: 16px 20px 20px 20px;
+  gap: 16px;
+  position: relative;
+  background-color: var(--background);
+}
+
+.topArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+}
+
+.logoCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+  width: 250px;
+  height: 100%;
+}
+
+.logoRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.mascotCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  padding: 10px;
+  position: relative;
+  height: 100%;
+}
+
+.mascotImage {
+  object-fit: contain;
+}
+
+.foodCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  height: 100%;
+}
+
+.foodImage {
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.bottomArea {
+  display: flex;
+  padding: 8px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.textAreaContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dishDesc {
+  color: var(--secondary-text);
+  line-height: 1.8;
+  white-space: pre-wrap; 
+  word-break: break-word;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center; /* Center artsy text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* We animate just the text and food for flair */
+.animator {
+  display: contents; /* Allows Framer motion to be transparent */
+}
