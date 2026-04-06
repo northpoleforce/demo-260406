@@ -39,25 +39,34 @@ project/
 
 ## 🚀 快速启动
 
-安装所有子项目依赖后，可通过根目录 `package.json` 统一管理：
+你可以通过以下**任一方式**一键启动所有后端与前端服务：
 
+### 方法一：极简模式 (推荐)
+在项目根目录直接运行：
 ```bash
-# 安装所有依赖
+npm start
+```
+> 这将调用 `dev.sh` 脚本，自动执行环境检查、依赖安装（如果缺失）并启动所有 4 个核心服务。
+
+### 方法二：开发者模式
+如果你已经安装过依赖，想直接看到彩色分屏日志：
+```bash
+npm run dev
+```
+
+### 方法三：手动分步启动
+如果需要调试特定模块：
+```bash
+# 1. 安装所有依赖
 npm run install:all
 
-# 启动餐饮后端（FastAPI）
-npm run start:foodshop-backend
+# 2. 启动核心服务
+npm run start:foodshop-backend   # 餐饮后端 (Port: 8000)
+npm run start:kitchen-tablet     # 后厨平板 (Port: 5173)
+npm run start:epaper-backend     # 电子纸渲染 (Port: 3000)
+npm run start:epaper-frontend    # 电子纸 UI   (Port: 3001)
 
-# 启动后厨平板前端（Vite Dev Server）
-npm run start:kitchen-tablet
-
-# 启动电子纸边缘渲染服务
-npm run start:epaper-backend
-
-# 启动电子纸前端 UI
-npm run start:epaper-frontend
-
-# 一键启动电子纸同步全链路
+# 3. 触发电子纸全手动/自动同步
 npm run sync:epaper
 ```
 

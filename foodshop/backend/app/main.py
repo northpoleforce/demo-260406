@@ -34,8 +34,18 @@ app = FastAPI(title=settings.app_name, lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        # 后厨平板前端（Vite）
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        # 电子纸 UI 前端（Next.js）
+        "http://localhost:3001",
+        "http://127.0.0.1:3001",
+        # 电子纸渲染服务（Node / Puppeteer）
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        # 保留旧地址兼容
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
     ],
     allow_credentials=True,
     allow_methods=["*"],

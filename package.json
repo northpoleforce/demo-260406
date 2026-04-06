@@ -7,17 +7,14 @@
     "install:all": "npm run install:epaper && npm run install:kitchen-tablet",
     "install:epaper": "cd epaper-sync/edge-server/backend && npm install && cd ../frontend && npm install",
     "install:kitchen-tablet": "cd foodshop/kitchen-tablet && npm install",
-
-    "start:foodshop-backend": "cd foodshop/backend && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
-    "start:kitchen-tablet": "cd foodshop/kitchen-tablet && npm run dev",
+    "start:foodshop-backend": "cd foodshop/backend && python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+    "start:kitchen-tablet": "cd foodshop/kitchen-tablet && npm run dev -- --port 5173",
     "start:kitchen-tablet:prod": "cd foodshop/kitchen-tablet && npm run build && npm run preview",
-
     "start:epaper-backend": "cd epaper-sync/edge-server/backend && node index.js",
-    "start:epaper-frontend": "cd epaper-sync/edge-server/frontend && npm run dev",
+    "start:epaper-frontend": "cd epaper-sync/edge-server/frontend && npm run dev -- -p 3001",
     "sync:epaper": "cd epaper-sync/edge-server && sh ../../epaper-sync/scripts/run_epaper_sync.sh",
-
-    "dev": "concurrently \"npm run start:foodshop-backend\" \"npm run start:kitchen-tablet\" \"npm run start:epaper-backend\" \"npm run start:epaper-frontend\"",
-
+    "dev": "concurrently -n \"BACKEND,TABLET,EPAPER-SVR,EPAPER-UI\" -c \"blue,green,magenta,cyan\" \"npm run start:foodshop-backend\" \"npm run start:kitchen-tablet\" \"npm run start:epaper-backend\" \"npm run start:epaper-frontend\"",
+    "start": "bash ./dev.sh",
     "lint": "cd foodshop/kitchen-tablet && npm run lint",
     "test:backend": "cd foodshop/backend && python -m pytest"
   },
