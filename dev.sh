@@ -263,7 +263,10 @@ if $UVICORN_OK && [ -n "$PYTHON_CMD" ]; then
     echo -e "  🍽  餐饮后端  (FastAPI)  → ${GREEN}http://localhost:8000${NC}"
 fi
 echo -e "  💻  后厨平板  (React)    → ${GREEN}http://localhost:5173${NC}"
+echo -e "  🪧  桌面点餐  (React)    → ${GREEN}http://localhost:5173/table.html${NC}"
 echo -e "  📡  电子纸渲染 (Node)    → ${GREEN}http://localhost:3000${NC}"
+echo -e "      └─ [触发同步] : ${CYAN}http://localhost:3000/trigger${NC}"
+echo -e "      └─ [自定义页] : epaper-sync/edge-server/backend/public/target.html"
 echo -e "  🖼   电子纸 UI (Next.js)  → ${GREEN}http://localhost:3001${NC}"
 divider
 echo -e "  ${YELLOW}按 Ctrl+C 可一键停止所有服务${NC}"
